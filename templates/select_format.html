@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Formato</title>
+</head>
+<body>
+    <h1>Selecionar Formato para Download</h1>
+    <form action="/download" method="post">
+        <input type="hidden" name="video_url" value="{{ video_url }}">
+        
+        <label for="format_id">Escolha o formato:</label>
+        <select id="format_id" name="format_id">
+            {% for format in formats %}
+                <option value="{{ format['format_id'] }}">{{ format['format'] }} - {{ format['resolution'] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Baixar</button>
+    </form>
+</body>
+</html>
